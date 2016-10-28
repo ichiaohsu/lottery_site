@@ -5,6 +5,7 @@ from django.db import models
 class Member(models.Model):
     name = models.CharField(max_length=256, unique=True)
     drawed = models.BooleanField(default=False)
+    photo = models.ImageField(upload_to='photos/', null=True)
 
     def __str__(self):
         return self.name

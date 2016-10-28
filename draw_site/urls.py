@@ -18,9 +18,15 @@ from django.contrib import admin
 
 from draw_member.views import home, add_member, draw
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name="home"),
     url(r'^draw/$', draw, name="draw"),
     url(r'^add/$', add_member, name="add_member")
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

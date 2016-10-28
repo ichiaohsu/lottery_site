@@ -4,13 +4,26 @@
 {% block content %}
 <div class="container">
     <h2>現在的候選人們:</h2>
-        <div class="member">
-        {% for member in members %}
-            <p>{{ member.name }}</p>
-            {% endfor %}
-        </div>
+    <div class="member">
+        <table>
+            <thead>
+                <tr>
+                    <th>名字</th>
+                    <th>照片</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for member in members %}
+                    <tr>
+                        <td>{{ member.name }}</td>
+                        <td><img src="{{ BASE_DIR }}{{ member.photo.url }}" /></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <form action="" method="post" role="form">
+    <form enctype="multipart/form-data" action="" method="post" role="form">
         {% csrf_token %}
         {{ form }}
         <button type="submit" class="btn btn-primary">新增</button>
