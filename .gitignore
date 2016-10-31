@@ -1,2 +1,5 @@
 .DS_Store
 media/
+db.sqlite3
+*.pyc
+

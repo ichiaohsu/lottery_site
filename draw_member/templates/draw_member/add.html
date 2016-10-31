@@ -1,5 +1,6 @@
 {# draw_member/templates/draw_member/add.html #}
 {% extends 'draw_member/base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="container">
@@ -25,7 +26,7 @@
 
     <form enctype="multipart/form-data" action="" method="post" role="form">
         {% csrf_token %}
-        {{ form }}
+        {{ form|crispy }}
         <button type="submit" class="btn btn-primary">新增</button>
     </form>
 </div>
