@@ -1,6 +1,6 @@
 .DS_Store
 media/
 db.sqlite3
-draw_site/__pycache__/*.pyc
 draw_member/__pycache__/*.pyc
+draw_site/__pycache__/*.pyc
 
