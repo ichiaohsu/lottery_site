@@ -6,5 +6,10 @@
     <h1>恭喜!</h1>
     <img src="{{ winner.photo.url }}"/>
     <p>{{ winner.name }}</p>
+
+    <form action="{% url 'draw' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-warning">再抽一次</button>
+    </form>
 </div>
 {% endblock content %}

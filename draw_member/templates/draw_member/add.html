@@ -1,11 +1,16 @@
 {# draw_member/templates/draw_member/add.html #}
 {% extends 'draw_member/base.html' %}
 {% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'draw_member/css/add.css'%}" />
+{% endblock css %}
 
 {% block content %}
 <div class="container">
     <h2>現在的候選人們:</h2>
-    <div class="member">
+    <div id="member-table">
         <table>
             <thead>
                 <tr>
@@ -24,11 +29,14 @@
         </table>
     </div>
 
-    <form enctype="multipart/form-data" action="" method="post" role="form">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button type="submit" class="btn btn-primary">新增</button>
-    </form>
+    <div class="container" id="addform-container">
+        <form enctype="multipart/form-data" action="" method="post" role="form">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary">新增</button>
+        </form>
+    </div>
+
 </div>
 
 {% endblock content %}
