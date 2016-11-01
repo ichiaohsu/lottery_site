@@ -9,34 +9,36 @@
 
 {% block content %}
 <div class="container">
+    {% if members %}
+    <div id="member-wrapper">
     <h2>現在的候選人們:</h2>
-    <div id="member-table">
-        <table>
+        <table id="member-table">
             <thead>
                 <tr>
-                    <th>名字</th>
-                    <th>照片</th>
+                    <th class="th-name">名字</th>
+                    <th class="th-photo">照片</th>
                 </tr>
             </thead>
             <tbody>
                 {% for member in members %}
                     <tr>
-                        <td>{{ member.name }}</td>
-                        <td><img src="{{ BASE_DIR }}{{ member.photo.url }}" /></td>
+                        <td class="td-name">{{ member.name }}</td>
+                        <td class="td-photo"><img src="{{ BASE_DIR }}{{ member.photo.url }}"/></td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
-    </div>
+    {% else %}
+    <h2>抱歉，現在沒有合格的候選人！快新增一個！</h2>
+    {% endif %}
 
-    <div class="container" id="addform-container">
-        <form enctype="multipart/form-data" action="" method="post" role="form">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <button type="submit" class="btn btn-primary">新增</button>
-        </form>
+    <div id="addform-wrapper">
+        {% crispy form %}
     </div>
-
 </div>
+
+
+
+
 
 {% endblock content %}

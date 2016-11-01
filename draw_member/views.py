@@ -27,11 +27,12 @@ def add_member(request):
 def draw(request):
     valid_members = Member.objects.filter(drawed=False)
 
-    if not valid_members.exists():
-        raise Http404("No valid member!")
+    if request.method == 'POST':
+        if not valid_members.exists():
+            raise Http404("No valid member!")
 
-    winner = random.choice(valid_members)
-    winner.drawed = True
-    winner.save()
+        winner = random.choice(valid_members)
+        winner.drawed = True
+        winner.save()
 
-    return render(request, 'draw_member/draw.html', {'winner':winner})
+        return render(request, 'draw_member/draw.html', {'winner':winner})

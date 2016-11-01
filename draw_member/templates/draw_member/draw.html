@@ -3,9 +3,8 @@
 
 {% block content %}
 <div class="container">
-    <h1>恭喜!</h1>
-    <img src="{{ winner.photo.url }}"/>
-    <p>{{ winner.name }}</p>
+    <h4>恭喜{{ winner.name }}抽中一百萬，請打這個電話跟我聯絡：3345678</h4>
+    <img src="{{ winner.photo.url }}"/ style="margin-top:30px; margin-bottom:30px; max-width:350px">
 
     <form action="{% url 'draw' %}" method="post">
         {% csrf_token %}
