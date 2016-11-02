@@ -1,0 +1,40 @@
+#addform-wrapper {
+    width: 350px;
+    margin-top: 100px;
+    margin-left:0px;
+}
+
+#member-table {
+    margin-top: 50px;
+}
+
+.asteriskField {
+    display: none;
+}
+
+label.control-label.requiredField {
+    font-size:1.5em;
+}
+
+img {
+    max-width:250px;
+    max-height:250px;
+    width:auto;
+    height:auto;
+}
+
+.th-name{
+    font-size:1.8em;
+    width: 250px;
+}
+td {
+    padding-top:50px;
+}
+.th-photo{
+    font-size:1.8em;
+}
+
+.td-name {
+    font-size: 20px;
+    width: 60px;
+}

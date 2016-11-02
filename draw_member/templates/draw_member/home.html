@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="container">
-    <h1>抽籤吧！遊戲BOY!</h1>
+    <h1 id="home-title" style="margin-bottom:50px">抽籤吧！遊戲BOY!</h1>
     <form action="{% url 'draw' %}" method="post">
         {% csrf_token %}
         <button type="submit" class="btn btn-warning">抽牌</button>

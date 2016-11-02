@@ -1,20 +1,44 @@
 {# draw_member/templates/draw_member/add.html #}
 {% extends 'draw_member/base.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'draw_member/css/add.css'%}" />
+{% endblock css %}
 
 {% block content %}
 <div class="container">
-    <h2>現在的候選人們:</h2>
-        <div class="member">
-        {% for member in members %}
-            <p>{{ member.name }}</p>
-            {% endfor %}
-        </div>
+    {% if members %}
+    <div id="member-wrapper">
+    <h2>現在的抽獎者們:</h2>
+        <table id="member-table">
+            <thead>
+                <tr>
+                    <th class="th-name">名字</th>
+                    <th class="th-photo">照片</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for member in members %}
+                    <tr>
+                        <td class="td-name">{{ member.name }}</td>
+                        <td class="td-photo"><img src="{{ BASE_DIR }}{{ member.photo.url }}"/></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+    <h2>抱歉，現在沒有合格的抽獎者！快新增一個！</h2>
+    {% endif %}
 
-    <form action="" method="post" role="form">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit" class="btn btn-primary">新增</button>
-    </form>
+    <div id="addform-wrapper">
+        {% crispy form %}
+    </div>
 </div>
+
+
+
+
 
 {% endblock content %}
