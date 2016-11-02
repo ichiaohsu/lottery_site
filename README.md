@@ -8,7 +8,7 @@
 pip install django-crispy-forms
 ```
 
-+由於沒有部署，取用照片的機制必須透過在```urls.py```中設定 ```MEDIA_ROOT ```路徑以達成
++ 由於沒有部署，取用照片的機制必須透過在```urls.py```中設定 ```MEDIA_ROOT ```路徑以達成
 ```
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
