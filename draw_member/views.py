@@ -29,7 +29,7 @@ def draw(request):
 
     if request.method == 'POST':
         if not valid_members.exists():
-            raise Http404("No valid member!")
+            return redirect('/add/')
 
         winner = random.choice(valid_members)
         winner.drawed = True
